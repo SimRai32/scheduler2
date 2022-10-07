@@ -13,3 +13,15 @@ export function getAppointmentsForDay(state, day) {
   return appointments;
 
 }
+
+export function getInterview(state, interview) {
+  if(!interview) {
+    return null;
+  }
+  const interviewerArr = Object.values(state.interviewers);
+  let foundInterviewer = interviewerArr.filter(interviewer => interviewer.id === interview.interviewer);
+  foundInterviewer = foundInterviewer[0];
+  const upcomingInterview = {"student": interview.student, "interviewer":{...foundInterviewer}};
+  return upcomingInterview;
+
+} 
