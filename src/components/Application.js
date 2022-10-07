@@ -4,7 +4,7 @@ import "components/Application.scss";
 import { useState, useEffect } from "react";
 import Appointment from "./Appointment";
 import axios from "axios"
-import { getAppointmentsForDay } from "helpers/selectors";
+import { getAppointmentsForDay, getInterview } from "helpers/selectors";
 
 
 export default function Application(props) {

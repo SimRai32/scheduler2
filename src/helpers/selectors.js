@@ -12,7 +12,7 @@ export function getAppointmentsForDay(state, day) {
   }
   return appointments;
 
-}
+};
 
 export function getInterview(state, interview) {
   if(!interview) {
@@ -24,4 +24,4 @@ export function getInterview(state, interview) {
   const upcomingInterview = {"student": interview.student, "interviewer":{...foundInterviewer}};
   return upcomingInterview;
 
-} 
+};
