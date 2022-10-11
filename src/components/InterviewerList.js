@@ -3,7 +3,6 @@ import "components/InterviewerList.scss";
 import InterviewerListItem from "./InterviewerListItem";
 
 export default function InterviewerList(props) {
-  console.log("List props", props);
   const interviewers  = props.interviewers;
   const value = props.value;
   const onChange = props.onChange;
