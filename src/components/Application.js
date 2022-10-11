@@ -28,6 +28,7 @@ export default function Application() {
       [id]: appointment
     };
     const sendIntData = {...interview};
+
     return axios.put(`http://localhost:8001/api/appointments/${id}`, {interview: sendIntData})
     .then(() => {
       return setState({...state, appointments});
@@ -49,8 +50,9 @@ export default function Application() {
     .then(() => {
       return setState({...state, appointments});
     });
-  }
+  };
   
+
   const setDay = day => setState({ ...state, day });
   
   // Get data from the listed websites and store them in state
