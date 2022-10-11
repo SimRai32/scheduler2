@@ -11,9 +11,9 @@ export default function Application() {
     state,
     setDay,
     bookInterview,
-    cancelInterview
+    cancelInterview,
+    updateSpots
   } = useApplicationData();
-
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const dailyInterviewers = getInterviewersForDay(state, state.day);
@@ -30,10 +30,10 @@ export default function Application() {
         interviewers={dailyInterviewers}
         bookInterview={bookInterview}
         cancelInterview={cancelInterview}
+        updateSpots={updateSpots}
       />
     );
 });
-  
   // renders the template + rest of the page
   appointmentsRender.push(<Appointment key="last" time="5pm" />);
     return (
