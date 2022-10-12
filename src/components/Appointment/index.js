@@ -22,6 +22,7 @@ export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
+
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -36,6 +37,10 @@ export default function Appointment(props) {
         transition(ERROR_SAVE, true);
       });
   };
+
+  
+
+
   function cancel() {
     transition(DELETING, true);
     props.cancelInterview(props.id)
@@ -49,11 +54,15 @@ export default function Appointment(props) {
   function confirming() {
     transition(CONFIRM);
   }
+
+
   function edit () {
     transition(EDIT);
   }
+
+
   return (
-    <article className="appointment">
+    <article className="appointment" data-testid="appointment">
       <Header time={props.time}/>
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
       {mode === SHOW && (

@@ -25,8 +25,7 @@ export function getInterview(state, interview) {
   }
   const interviewerArr = Object.values(state.interviewers);
   // finds interviewer data
-  let foundInterviewer = interviewerArr.filter(interviewer => interviewer.id === interview.interviewer);
-  foundInterviewer = foundInterviewer[0];
+  const foundInterviewer = interviewerArr.find(interviewer => interviewer.id === interview.interviewer);
   // put student and interviewer data into an object
   const upcomingInterview = {"student": interview.student, "interviewer":{...foundInterviewer}};
   return upcomingInterview;

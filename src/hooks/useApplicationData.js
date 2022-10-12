@@ -13,9 +13,9 @@ export function useApplicationData() {
 
   useEffect(() => {
     Promise.all([
-      axios.get('http://localhost:8001/api/days'),
-      axios.get('http://localhost:8001/api/appointments'),
-      axios.get('http://localhost:8001/api/interviewers')
+      axios.get('/api/days'),
+      axios.get('/api/appointments'),
+      axios.get('/api/interviewers')
     ]).then(all => {
       setState(prev => ({...prev, days: all[0].data, appointments:all[1].data, interviewers:all[2].data}));
     });
@@ -25,10 +25,7 @@ export function useApplicationData() {
     let spots = 0;
     const daysNeedUpdate = [...state.days];
     const dayObj = state.days.find(day => day.name === state.day);
-    let dayToUpdate = state.days.filter(filterDay => filterDay.name === state.day);
-    dayToUpdate = [...dayToUpdate][0];
-    console.log(dayToUpdate);
-    console.log(dayObj);
+    let dayToUpdate = {...dayObj};
 
     for (const id of dayObj.appointments) {
       const appointment = appointments[id];
