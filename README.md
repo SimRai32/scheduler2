@@ -1,8 +1,5 @@
 # Interview Scheduler
 Interview Scheduler is an easy and intuitive way for a company to keep track of various interviews. This app was built using Axios and React.
-
-## Final Product
-
 ## Dependencies
 - Axios
 - Classnames
@@ -13,7 +10,9 @@ Interview Scheduler is an easy and intuitive way for a company to keep track of 
 - Node
 
 ## Final Product
-
+!["A gif of the add feature"](https://github.com/SimRai32/scheduler2/blob/master/docs/Add.gif?raw=true)
+!["A gif of the edit feature"](https://github.com/SimRai32/scheduler2/blob/master/docs/Edit.gif?raw=true)
+!["A gif of the delete feature"](https://github.com/SimRai32/scheduler2/blob/master/docs/Delete.gif?raw=true)
 ## Setup
 
 Install dependencies with `npm install`.
