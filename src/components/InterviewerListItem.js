@@ -13,6 +13,5 @@ export default function InterviewerListItem(props) {
       />
       {props.name}
     </li>
-
-  )
-}
+  );
+};

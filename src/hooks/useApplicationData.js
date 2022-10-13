@@ -8,9 +8,9 @@ export function useApplicationData() {
     interviewers: {} 
   });
 
-
   const setDay = day => setState({ ...state, day });
 
+  // retrieve the data from the database on every page refresh
   useEffect(() => {
     Promise.all([
       axios.get('/api/days'),
@@ -21,12 +21,14 @@ export function useApplicationData() {
     });
   }, []);
 
+  // gets the current number of spots when deleting or adding appointments
   const updateSpots = (state, appointments) => {
     let spots = 0;
     const daysNeedUpdate = [...state.days];
     const dayObj = state.days.find(day => day.name === state.day);
     let dayToUpdate = {...dayObj};
 
+    // counts the new number of spots for that day 
     for (const id of dayObj.appointments) {
       const appointment = appointments[id];
       if (appointment.interview === null) {
@@ -36,6 +38,7 @@ export function useApplicationData() {
 
     dayToUpdate = {...dayToUpdate, spots};
 
+    // creates a new days array with the updated spots data
     const updatedDays = daysNeedUpdate.map(updatedObj => {
       if (updatedObj.id === dayToUpdate.id) {
         return dayToUpdate;
@@ -46,6 +49,7 @@ export function useApplicationData() {
     return updatedDays;
   }
 
+  // saves the user's interview into the database
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -64,15 +68,16 @@ export function useApplicationData() {
     });
   };
 
+  // deletes the identified interview from the database
   function cancelInterview(id) {
     const appointment = {
       ...state.appointments[id],
       interview: null
-    }
+    };
     const appointments = {
       ...state.appointments,
       [id]: appointment
-    }
+    };
 
     return axios.delete(`http://localhost:8001/api/appointments/${id}`)
     .then(() => {

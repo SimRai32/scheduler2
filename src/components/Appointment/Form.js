@@ -8,18 +8,21 @@ export default function Form (props) {
   const [student, setStudent] = useState(props.student || "");
   const [error, setError] = useState("");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
+  
   // resets value of student and interviewer
   const reset = () => {
     setStudent("");
     setInterviewer(null);
-  }
+  };
 
+  // Cancels the form and resets any data the user may have input
   const cancel = () => {
     reset();
     setError("");
     props.onCancel();
-  }
+  };
 
+  // Ensures all the necessary information is input by the user
   function validate() {
     setError("");
     if (student === "") {
@@ -31,7 +34,7 @@ export default function Form (props) {
       return;
     }
     props.onSave(student, interviewer);
-  }
+  };
   
   return(
     <main className="appointment__card appointment__card--create">

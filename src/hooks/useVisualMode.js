@@ -3,6 +3,8 @@ import { useState } from "react";
 export function useVisualMode(initial) {
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);
+
+  // updates the mode with the next argument and adds it into the history array if replace = false
   const transition = (next, replace = false) => {
     setMode(next);
     const tempHistory = [...history];
@@ -12,13 +14,14 @@ export function useVisualMode(initial) {
     setHistory([...tempHistory, next]);
   }
 
+  // Sets the mode to the penultimate element of the history array
   const back = () => {
     if(history.length > 1) {
       const tempHistory = [...history];
+      // getting rid of the last element in the history array
       tempHistory.pop();
       const previous = tempHistory[tempHistory.length-1];
       setHistory([...tempHistory]);
-      console.log(previous);
       setMode(previous);
     } 
   }

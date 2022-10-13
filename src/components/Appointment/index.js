@@ -23,6 +23,7 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
+  // saves the new interview data into the database
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -38,9 +39,7 @@ export default function Appointment(props) {
       });
   };
 
-  
-
-
+  // deletes the chosen interview from the database
   function cancel() {
     transition(DELETING, true);
     props.cancelInterview(props.id)
@@ -50,16 +49,15 @@ export default function Appointment(props) {
         .catch((error) => {
           transition(ERROR_DELETE, true);
         });
-  }
+  };
+
   function confirming() {
     transition(CONFIRM);
-  }
-
+  };
 
   function edit () {
     transition(EDIT);
-  }
-
+  };
 
   return (
     <article className="appointment" data-testid="appointment">

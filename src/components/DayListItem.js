@@ -4,6 +4,7 @@ import "components/DayListItem.scss";
 
 export default function DayListItem(props) {
   const selectIsTrue = props.selected;
+  // Retrieves and returns the # of available spots in a given day 
   function formatSpots() {
     if (props.spots > 1) {
       return `${props.spots} spots remaining`;

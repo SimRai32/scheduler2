@@ -16,7 +16,6 @@ export function getAppointmentsForDay(state, day) {
     appointments.push(...temp);
   }
   return appointments;
-
 };
 
 export function getInterview(state, interview) {
@@ -29,7 +28,6 @@ export function getInterview(state, interview) {
   // put student and interviewer data into an object
   const upcomingInterview = {"student": interview.student, "interviewer":{...foundInterviewer}};
   return upcomingInterview;
-
 };
 
 export function getInterviewersForDay(state, day) {
@@ -48,4 +46,4 @@ export function getInterviewersForDay(state, day) {
   }
   const interviewerArr = Object.values(interviewerObj);
   return interviewerArr;
-}
+};
