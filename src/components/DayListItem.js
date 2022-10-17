@@ -16,6 +16,7 @@ export default function DayListItem(props) {
   }
   const text = formatSpots();
   const fullIsTrue = props.spots === 0;
+  // checks if this particular day was selected
   const checkIfTrue = classNames("day-list__item", {"day-list__item--selected":selectIsTrue}, {"day-list__item--full":fullIsTrue});
   return (
     <li onClick={() => {props.setDay(props.name)}} className={checkIfTrue} data-testid="day">

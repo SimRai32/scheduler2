@@ -4,6 +4,11 @@ import classNames from "classnames";
 
 export default function InterviewerListItem(props) {
   const classCheck = classNames("interviewers__item", {"interviewers__item--selected":props.selected});
+  let name = ""
+  // checks if this interviewer was selected
+  if (props.selected) {
+    name = [props.name];
+  } 
   return(
     <li className={classCheck} onClick={props.setInterviewer}>
       <img
@@ -11,7 +16,7 @@ export default function InterviewerListItem(props) {
         src={props.avatar}
         alt={props.name}
       />
-      {props.name}
+      {name}
     </li>
   );
 };

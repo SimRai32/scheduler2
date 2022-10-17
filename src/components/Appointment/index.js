@@ -29,23 +29,29 @@ export default function Appointment(props) {
       student: name,
       interviewer
     };
-    transition(SAVING);
+    transition(SAVING, true);
+    // tries to save data
     props.bookInterview(props.id, interview)
+      // success
       .then(() => {
         transition(SHOW);
       })
+      // fail
       .catch((error) => {
-        transition(ERROR_SAVE, true);
+        transition(ERROR_SAVE);
       });
   };
 
   // deletes the chosen interview from the database
   function cancel() {
     transition(DELETING, true);
+    // tries to delete data
     props.cancelInterview(props.id)
+        // success
         .then(() => {
           transition(EMPTY);
         })
+        // fail
         .catch((error) => {
           transition(ERROR_DELETE, true);
         });

@@ -7,6 +7,7 @@ function InterviewerList(props) {
   const interviewers  = props.interviewers;
   const value = props.value;
   const onChange = props.onChange;
+  // makes an array that contains all the necessary props to render each interviewer
   const arr = interviewers.map((interviewer) =>
     <InterviewerListItem
       key={interviewer.id}

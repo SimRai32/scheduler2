@@ -25,10 +25,12 @@ export default function Form (props) {
   // Ensures all the necessary information is input by the user
   function validate() {
     setError("");
+    // checks if student name is blank
     if (student === "") {
       setError("Student name cannot be blank");
       return;
     }
+    // checks if an interviewer was selected
     if (interviewer === null) {
       setError("Please select an interviewer");
       return;

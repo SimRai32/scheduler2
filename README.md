@@ -16,6 +16,7 @@ Interview Scheduler is an easy and intuitive way for a company to keep track of 
 ## Setup
 
 Install dependencies with `npm install`.
+Fork and clone the scheduler-api repo from https://github.com/lighthouse-labs/scheduler-api and follow the README on there.
 
 ## Running Webpack Development Server
 
